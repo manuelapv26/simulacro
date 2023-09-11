@@ -1,0 +1,16 @@
+
+public class Procesos {
+   int cantTotalRegistradas, cantPersoIngresadas, cantMayores, cantMenores;
+   public void iniciar() {
+	   int opcion = 0;
+	   do {
+		String menu="<<<<<MENU>>>>>";
+		menu+="1. Total de personas registradas \n";
+		menu+="2. Cantidad de personas ingresadas \n";
+		menu+="3. Cantidad de personas mayores de edad \n";
+		menu+="4. Cantidad de personas menores de edad \n";
+		menu+="5. Salir";
+		
+	} while (opcion != 5);
+   }
+}

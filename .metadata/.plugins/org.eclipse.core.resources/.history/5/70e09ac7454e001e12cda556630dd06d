@@ -1,0 +1,33 @@
+import javax.swing.JOptionPane;
+
+public class Procesos {
+   int cantTotalRegistradas, cantPersoIngresadas, cantMayores, cantMenores;
+   private void iniciar() {
+	   int opcion = 0;
+	   do {
+		String menu="<<<<<MENU>>>>>";
+		menu+="1. Total de personas registradas \n";
+		menu+="2. Cantidad de personas ingresadas \n";
+		menu+="3. Cantidad de personas mayores de edad \n";
+		menu+="4. Cantidad de personas menores de edad \n";
+		menu+="5. Salir";
+		opcion = Integer.parseInt(JOptionPane.showInputDialog(menu));
+	} while (opcion != 5);
+   }
+
+   public void ingresarDatos() {
+	   String nombre= JOptionPane.showInputDialog("Ingrese su nombre");
+	   String documento= JOptionPane.showInputDialog("Ingrese su documento");
+	   int edad= Integer.parseInt(JOptionPane.showInputDialog("Ingrese su edad"));
+	   String profesion= JOptionPane.showInputDialog("Ingrese su profesion");   
+   }
+   public void calcularEdad(int edad) {
+	   if (edad>=18) {
+		System.out.println("El usuario es mayor de edad");
+		cantMayores++;
+	}else {
+		System.out.println("El usuario es menor de edad");
+		cantMenores++;
+	}
+   }
+}

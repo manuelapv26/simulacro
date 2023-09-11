@@ -1,0 +1,10 @@
+import java.util.HashMap;
+
+public class ModeloDatos {
+	HashMap<> mapPersonas; 
+	public ModeloDatos() {
+		 HashMap mapPersonas = new HashMap<>();
+		 }
+
+}
+     

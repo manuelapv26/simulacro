@@ -1,0 +1,45 @@
+import java.util.ArrayList;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+
+public class Procesos {
+	ModeloDatos miData;
+	ArrayList<String> listPersonas;
+   int cantTotalRegistradas, cantPersoIngresadas, cantMayores, cantMenores;
+   public Procesos() {
+	   miData=new ModeloDatos();
+	   iniciar();
+	   }
+   private void iniciar() {
+	   String resp="";
+	   do {
+	   ingresarDatos();
+	   resp=JOptionPane.showInputDialog("Ingrese si, para continuar registrando estudiantes");
+	   }while(resp.equalsIgnoreCase("si"));
+     }
+	   private void ingresarDatos() {
+		   listPersonas=new ArrayList<String>();
+		   String nombre=JOptionPane.showInputDialog("Ingrese su nombre");
+		   String documento=JOptionPane.showInputDialog("Ingrese su documento");
+		   String profesion=JOptionPane.showInputDialog("Ingrese su profesion");
+		   int edad=Integer.parseInt(JOptionPane.showInputDialog("ingrese su edad"));
+		   listPersonas.add(documento);
+		   listPersonas.add(nombre);
+		   listPersonas.add(profesion);
+		   listPersonas.add(profesion);
+		   miData.guardarDatos(listPersonas);
+		   System.out.println("Nombre: "+nombre+", Documento: "+documento+", Profesion: "+profesion+", Edad: "+edad);
+           validarEdad(edad);
+	   }
+	   public int validarEdad(int edad) {
+		   if (edad>=18) {
+			   System.out.println("Es mayor de edad");
+			   cantMayores++;
+		   }else {
+			   System.out.println("Es menor de edad");
+			   cantMenores++;
+		   }
+		return edad;
+		   }
+
+}

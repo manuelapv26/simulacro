@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+public class Procesos {
+	ArrayList<String> listEmpleados;
+	double descuento,sueldoFinal;
+	
+	public Procesos() {
+		ModeloDatos miData;
+		miData=new ModeloDatos();
+		iniciar();
+		}
+	 private void iniciar() {
+	    	
+	    }
+	    private void ingresarDatos() {
+	    	listEmpleados=new ArrayList<String>();
+	    	String documento=JOptionPane.showInputDialog("Ingrese el documento");
+	    	String nombre=JOptionPane.showInputDialog("Ingrese el nombre del empleado");
+	    	double sueldoActual=Double.parseDouble(JOptionPane.showInputDialog("ingrese su sueldo actual"));
+	    	int estrato=Integer.parseInt(JOptionPane.showInputDialog("ingrese el estrato del empleado"));
+	    	listEmpleados.add(documento);
+	    	listEmpleados.add(nombre);
+	    	listEmpleados.add(sueldoActual+"");
+	    	listEmpleados.add(estrato+"");
+	    	miData.guardarDatos(listEmpleados);
+	        evaluarEstrato(estrato,sueldoActual);
+	    	System.out.println("Nombre: "+nombre+", Documento: "+documento+", Estrato: "+estrato);
+
+	}
+	public int evaluarEstrato(int estrato, double sueldoActual) {
+		switch (estrato) {
+		case 1:
+			descuento:
+			break;
+
+		default:
+			break;
+		}
+		return estrato;
+	}
+}

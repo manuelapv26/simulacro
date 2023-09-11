@@ -1,0 +1,73 @@
+
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+public class Procesos {
+	ModeloDatos miData;
+	ArrayList<String> listPersonas;
+   int  cantPersoIngresadas, cantMayores, cantMenores;
+   public Procesos() {
+	   miData=new ModeloDatos();
+	   iniciar();
+	   }
+   private void iniciar() {
+	   int opcion;
+	   do {
+	   String menu="<<<<<MENU>>>>> \n";
+	    menu+="1. Ingresar usuario \n";
+		menu+="2. Total de personas registradas \n";
+		menu+="3. Cantidad de personas ingresadas \n";
+		menu+="4. Cantidad de personas mayores de edad \n";
+		menu+="5. Cantidad de personas menores de edad \n";
+		menu+="6. Salir";
+		opcion = Integer.parseInt(JOptionPane.showInputDialog(menu));
+		switch (opcion) {
+		case 1:
+			ingresarDatos();
+			break;
+		case 2:
+			JOptionPane.showMessageDialog(null, "La cantidad total de personas registradas"
+		+ " son: "+miData.getSizeMap());
+			break;
+		case 3:
+		JOptionPane.showMessageDialog(null, "La cantidad total de personas ingresadas"
+				+ " son: "+miData.getSizeMap());
+			break;
+		case 4:
+			JOptionPane.showConfirmDialog(null, "La cantidad de personas mayores de edad son: "+cantMayores);
+		  break;
+		case 5:
+			JOptionPane.showConfirmDialog(null, "La cantidad de personas manores de edad son: "+cantMenores);
+		break;
+		default:JOptionPane.showMessageDialog(null, "Ingrese una opcion valida");
+			break;
+		}
+	   }while(opcion != 6);
+     }
+   
+	   private void ingresarDatos() {
+		   listPersonas=new ArrayList<String>();
+		   String nombre=JOptionPane.showInputDialog("Ingrese su nombre");
+		   String documento=JOptionPane.showInputDialog("Ingrese su documento");
+		   String profesion=JOptionPane.showInputDialog("Ingrese su profesion");
+		   int edad=Integer.parseInt(JOptionPane.showInputDialog("ingrese su edad"));
+		   listPersonas.add(documento);
+		   listPersonas.add(nombre);
+		   listPersonas.add(profesion);
+		   miData.guardarDatos(listPersonas);
+		   System.out.println("Nombre: "+nombre+", Documento: "+documento+", Profesion: "+profesion+", Edad: "+edad);
+           validarEdad(edad);
+          
+	   }
+	   public int validarEdad(int edad) {
+		   if (edad>=18) {
+			   System.out.println("Es mayor de edad");
+			   cantMayores++;
+		   }else {
+			   System.out.println("Es menor de edad");
+			   cantMenores++;
+		   }
+		return edad;
+		   }
+
+}
